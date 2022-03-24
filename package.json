@@ -4,10 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "cd mern-app && npm run build",
-    "install-client": "cd mern-app && npm install",
-    "server": "nodemon app.js",
-    "start": "\\\"npm run server\\\" \\\"npm run start --prefix client\\\""
+    "start": "node app.js",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Libby Davis",
   "license": "ISC",
