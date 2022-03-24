@@ -1,1 +1,1 @@
-web: npm start
+web: npm start && cd mern-app && npm start
