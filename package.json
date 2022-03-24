@@ -10,7 +10,7 @@
     "build": "cd mern-app && npm run build",
     "install-client": "cd mern-app && npm install",
     "server": "nodemon app.js",
-    "start": "npm start"
+    "start": "\\\"npm run server\\\" \\\"npm run start --prefix client\\\""
   },
   "author": "Libby Davis",
   "license": "ISC",
