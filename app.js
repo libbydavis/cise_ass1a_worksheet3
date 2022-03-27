@@ -31,10 +31,10 @@ if (port == null || port == "") {
 const path = require("path");
 
 // Step 1:
-app.use(express.static(path.join(__dirname, 'mern-app', 'build')));
+app.use(express.static(path.join(__dirname, 'mern-app', 'public')));
 // Step 2:
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'mern-app', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'mern-app', 'public', 'index.html'))
 });
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
