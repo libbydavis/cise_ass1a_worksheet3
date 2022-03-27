@@ -22,19 +22,27 @@ app.use(express.json({ extended: false }));
 // use Routes
 app.use('/api/books', books);
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8000;
-}
+const port = process.env.PORT || 8000;
 
 // Accessing the path module
 const path = require("path");
 
 // Step 1:
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'mern-app', 'build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'mern-app', 'build', 'index.html'))
+    });
+
+}
+/*
 app.use(express.static(path.join(__dirname, 'mern-app', 'public')));
 // Step 2:
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'mern-app', 'public', 'index.html'))
 });
+
+ */
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
