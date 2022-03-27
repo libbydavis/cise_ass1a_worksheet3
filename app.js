@@ -1,4 +1,5 @@
 // app.js
+/*
 
 const express = require('express');
 const connectDB = require('./config/db');
@@ -36,5 +37,37 @@ app.use(express.static(path.join(__dirname, "./mern-app/build")));
 app.get("/*", function (request, response) {
     response.sendFile(path.join(__dirname, "./mern-app/build", "index.html"));
 });
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
+ */
+// app.js
+
+const express = require('express');
+const connectDB = require('./config/db');
+var cors = require('cors');
+
+// routes
+const books = require('./routes/api/books');
+
+const app = express();
+
+// Connect Database
+connectDB();
+
+// cors
+app.use(cors({ origin: true, credentials: true }));
+
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+
+// use Routes
+app.use('/api/books', books);
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8000;
+}
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
