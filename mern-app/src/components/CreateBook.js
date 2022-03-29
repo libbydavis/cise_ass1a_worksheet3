@@ -24,7 +24,7 @@ class CreateBook extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data1 = new Object();
+        //Testing automatic deployment
         const data = {
             title: this.state.title,
             isbn: this.state.isbn,
