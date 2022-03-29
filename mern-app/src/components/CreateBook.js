@@ -34,7 +34,7 @@ class CreateBook extends Component {
         };
 
         axios
-            .post('http://localhost:8082/api/books', data)
+            .post('/api/books', data)
             .then(res => {
                 this.setState({
                     title: '',
@@ -47,6 +47,7 @@ class CreateBook extends Component {
                 this.props.history.push('/');
             })
             .catch(err => {
+                console.log(err);
                 console.log("Error in CreateBook!");
             })
     };

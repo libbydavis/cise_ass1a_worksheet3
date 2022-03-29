@@ -2,7 +2,7 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
-var cors = require('cors');
+const cors = require('cors');
 
 // routes
 const books = require('./routes/api/books');
@@ -13,7 +13,7 @@ const app = express();
 connectDB();
 
 // cors
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
